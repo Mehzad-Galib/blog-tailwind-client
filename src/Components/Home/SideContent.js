@@ -16,6 +16,8 @@ const SideContent = () => {
     };
     fetchData();
   }, []);
+  const reversed = [...blogs].reverse();
+  console.log(reversed[0]?.author);
 
 
   return (
@@ -68,7 +70,7 @@ const SideContent = () => {
         </div>
       </div>
 
-      {/* <div className="px-8 mt-10">
+      <div className="px-8 mt-10">
         <h1 className="mb-4 text-xl font-bold text-gray-700">Recent Post</h1>
         <div className="flex flex-col max-w-sm px-8 py-6 mx-auto bg-white rounded-lg shadow-md">
           <div className="flex items-center justify-center">
@@ -76,7 +78,7 @@ const SideContent = () => {
               
               className="px-2 py-1 text-sm text-green-100 bg-gray-600 rounded hover:bg-gray-500"
             >
-              {blogs[blogs.length-1].author}
+              {reversed[0]?.field}
             </Nav.Link>
           </div>
           <div className="mt-4">
@@ -84,13 +86,13 @@ const SideContent = () => {
                
               className="text-lg font-medium text-gray-700 hover:underline"
             >
-              {blogs[blogs.length-1].title}
+              {reversed[0]?.title}
             </Nav.Link>
           </div>
           <div className="flex items-center justify-between mt-4">
             <div className="flex items-center">
               <img
-                src={blogs[blogs.length-1].image}
+                src={reversed[0]?.image}
                 alt="avatar"
                 className="object-cover w-8 h-8 rounded-full"
               />
@@ -98,15 +100,15 @@ const SideContent = () => {
                  
                 className="mx-3 text-sm text-gray-700 hover:underline"
               >
-                {blogs[blogs.length-1].author}
+                {reversed[0]?.author}
               </Nav.Link>
             </div>
             <span className="text-sm font-light text-gray-600">
-            {blogs[blogs.length-1].date}
+            {reversed[0]?.date}
             </span>
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };
