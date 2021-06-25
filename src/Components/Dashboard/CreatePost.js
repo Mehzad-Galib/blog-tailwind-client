@@ -13,7 +13,7 @@ const CreatePost = () => {
   const onSubmit = (data) =>{
     const userData = {...data, cover: coverImage, image:authorImage}
     console.log(userData);
-    fetch("http://localhost:8080/addBlog", {
+    fetch("https://stormy-gorge-44936.herokuapp.com/addBlog", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),

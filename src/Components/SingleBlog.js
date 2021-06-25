@@ -7,7 +7,7 @@ const SingleBlog = () => {
   let {id} = useParams();
   const [blogDetail, setBlogDetail] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:8080/singleBlog/${id}`)
+    fetch(`https://stormy-gorge-44936.herokuapp.com/singleBlog/${id}`)
       .then((response) => response.json())
       .then((data) => setBlogDetail(data));
   }, [id]);

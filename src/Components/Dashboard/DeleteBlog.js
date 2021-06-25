@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const DeleteBlog = () => {
   const [blogs, setBlogs] = useState([]);
   const handleDelete = (id) =>{
-    fetch(`http://localhost:8080/delete/${id}`, {
+    fetch(`https://stormy-gorge-44936.herokuapp.com/delete/${id}`, {
         method: 'DELETE'
     })
     .then(result=> {
@@ -15,7 +15,7 @@ const DeleteBlog = () => {
     useEffect(()=>{
         const fetchData = async() =>{
             try{
-                const response = await fetch("http://localhost:8080/blogs");
+                const response = await fetch("https://stormy-gorge-44936.herokuapp.com/blogs");
                 const data = await response.json()
                 setBlogs(data)
             }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
             Mehzad Galib
           </Nav.Link>
 
-          <p className="mt-2 md:mt-0">All rights reserved 2020.</p>
+          <p className="mt-2 md:mt-0">All rights reserved 2021</p>
 
           <div className="flex mt-4 mb-2 -mx-2 md:mt-0 md:mb-0">
             

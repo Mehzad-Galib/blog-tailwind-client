@@ -7,7 +7,7 @@ const SideContent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/blogs");
+        const response = await fetch("https://stormy-gorge-44936.herokuapp.com/blogs");
         const data = await response.json();
         setBlogs(data);
       } catch (err) {
