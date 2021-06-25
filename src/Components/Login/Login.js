@@ -31,6 +31,10 @@ const Login = () => {
     // Signed in
     const user = userCredential.user;
     console.log(user);
+    const { email } = user;
+    const signedInUser = { email: email };
+        setLoggedInUser(signedInUser);
+        history.replace(from);
     // ...
   })
   .catch((error) => {

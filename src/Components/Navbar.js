@@ -6,6 +6,8 @@ import { UserContext } from "../App";
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from "../Components/Login/firebase.config";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faColumns, faHome, faSignInAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 
 
 if (firebase.apps.length === 0) {
@@ -82,8 +84,8 @@ const Navbar = () => {
                 as={Link}
                 to={`/home`}
                 className="text-gray-500 hover:border-b-4 font-semibold hover:text-purple-500"
-              >
-                Home
+              ><FontAwesomeIcon icon={faHome} />
+               <span className="mx-2">Home</span>
               </Nav.Link>
             </li>
 
@@ -92,43 +94,32 @@ const Navbar = () => {
                 as={Link}
                 to={`/dashboard/createPost`}
                 className="text-gray-500 font-semibold hover:text-purple-500"
-              >
-                Dashboard
+              ><FontAwesomeIcon icon={faColumns} /> 
+               <span className="mx-2">Dashboard</span>
               </Nav.Link>
             </li>
 
-            {loggedInUser.name ? (
-              <li className="px-2 md:px-4 hidden md:block">
-                <button
-                  onClick={()=> signOut()}
-                  className="text-gray-500 font-semibold hover:text-purple-500"
-                >
-                  {loggedInUser.name}
-                </button>
-              </li>
-            ) : (
-              <li className="px-2 md:px-4 hidden md:block">
+            <li className="px-2 md:px-4 hidden md:block">
                 <Nav.Link
                   as={Link}
                   to={`/login`}
                   className="text-gray-500 font-semibold hover:text-purple-500"
                 >
-                  {" "}
-                  Login/Register
+                  <FontAwesomeIcon icon={faSignInAlt} /> 
+                  <span className="mx-2">Login/Register</span>
                 </Nav.Link>
               </li>
-            )}
 
-            {loggedInUser.name && (
+            {loggedInUser.email && (
               <li className="px-2 md:px-4 hidden md:block">
                 <button
                   onClick={()=> {
                     console.log('clicked');
                     return signOut()
                   }}
-                  className="text-gray-500 font-semibold hover:text-purple-500"
-                >
-                  Sign Out
+                  className="text-gray-500 font-semibold"
+                ><FontAwesomeIcon icon={faUser} /> 
+                  <span className="mx-2">{loggedInUser.email}</span>
                 </button>
               </li>
             ) }

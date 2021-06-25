@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 const CreatePost = () => {
   const [coverImage, setCoverImage] = useState(null);
   const [authorImage, setAuthorImage] = useState(null);
+  const [message, setMessage] = useState(null)
   const {
     register,
     handleSubmit
@@ -19,7 +20,10 @@ const CreatePost = () => {
       body: JSON.stringify(userData),
     })
     .then((res) => res.json())
-    .then((result=> console.log(result)));
+    .then((result=> {
+      console.log(result);
+      setMessage('Blog added Successfully')
+    }));
   }
 
   const handleCoverImageUpload = (event) => {
@@ -126,7 +130,11 @@ const CreatePost = () => {
           ></textarea>
         </div>
       </div>
-      <button type='submit' className="rounded-lg hover:bg-green-300 bg-green-500 px-5 py-3 font-semibold text-gray-200">Add Review</button>
+      <button type='submit' className="rounded-lg mb-3 hover:bg-green-300 bg-green-500 px-5 py-3 font-semibold text-gray-200">Publish Blog</button>
+      {
+        message && <p className="text-xl font-semibold text-green-700">{message}</p>
+      }
+      
     </form>
   );
 };
